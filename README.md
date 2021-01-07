@@ -1,1 +1,2 @@
 # BIS15W2021_lnubla
+Hello, and welcome to my repository! Here you will find all of my work and assignments for my BIS015 course. Follow along as my programming skills and knowledge expand and my .rmd files become more complex :) 
