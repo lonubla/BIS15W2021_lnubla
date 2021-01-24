@@ -35,10 +35,15 @@ glimpse(sleep)
 dim(sleep)
 ```
 
+<style>
+div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}
+</style>
+<div class = "blue">
 4. Are there any NAs in the data? How did you determine this? Please show your code.  
 ```{r}
 
 ```
+</div>
 
 5. Show a list of the column names is this data frame.
 ```{r}
@@ -89,6 +94,7 @@ all_sleep <- data.frame(sleep$name)
 all_sleep <- cbind(all_sleep, sleep$sleep_total)
 all_sleep
 ```
+
 ```{r}
 max(all_sleep[,2])
 ```
