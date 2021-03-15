@@ -1,7 +1,7 @@
 ---
 title: "Lab 3 Homework"
 author: "Lauren Nubla"
-date: "2021-01-14"
+date: "2021-01-24"
 output:
   html_document: 
     theme: spacelab
@@ -39,8 +39,8 @@ glimpse(sleep)
 ```
 
 ```
-## Rows: 83
-## Columns: 11
+## Observations: 83
+## Variables: 11
 ## $ name         <chr> "Cheetah", "Owl monkey", "Mountain beaver", "Greater sho…
 ## $ genus        <chr> "Acinonyx", "Aotus", "Aplodontia", "Blarina", "Bos", "Br…
 ## $ vore         <chr> "carni", "omni", "herbi", "omni", "herbi", "herbi", "car…
@@ -62,8 +62,13 @@ dim(sleep)
 ## [1] 83 11
 ```
 
+<style>
+div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}
+</style>
+<div class = "blue">
 4. Are there any NAs in the data? How did you determine this? Please show your code.  
 
+</div>
 
 5. Show a list of the column names is this data frame.
 
@@ -237,6 +242,7 @@ all_sleep
 ## 82                     Arctic fox              12.5
 ## 83                        Red fox               9.8
 ```
+
 
 ```r
 max(all_sleep[,2])
