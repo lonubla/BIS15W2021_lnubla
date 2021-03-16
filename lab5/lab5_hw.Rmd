@@ -21,6 +21,12 @@ Make sure to use the formatting conventions of RMarkdown to make your report nea
 ```{r message=FALSE, warning=FALSE}
 library(tidyverse)
 ```
+<style>
+div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}
+</style>
+<div class = "blue">
+
+# missing data
 
 ## Load the superhero data
 These are data taken from comic books and assembled by fans. The include a good mix of categorical and continuous data.  Data taken from: https://www.kaggle.com/claudiodavi/superhero-set  
@@ -31,6 +37,7 @@ superhero_info <- readr::read_csv("data/heroes_information.csv", na = c("", "-99
 superhero_powers <- readr::read_csv("data/super_hero_powers.csv", na = c("", "-99", "-"))
 superhero_info
 ```
+</div>
 
 ## Data tidy
 1. Some of the names used in the `superhero_info` data are problematic so you should rename them here.  
@@ -159,13 +166,20 @@ Have a quick look at the `superhero_powers` data frame.
 ```{r}
 glimpse(superhero_powers)
 ```
+<style>
+div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}
+</style>
+<div class = "blue">
+
+# missing pipe
 
 14. How many superheros have a combination of accelerated healing, durability, and super strength?
 ```{r}
 superhero_powers%>%
-  filter(accelerated_healing=="TRUE"&durability=="TRUE"&super_strength=="TRUE")
-select(hero_names,accelerated_healing,durability,super_strength)
+  filter(accelerated_healing=="TRUE"&durability=="TRUE"&super_strength=="TRUE") %>% 
+ select(hero_names,accelerated_healing,durability,super_strength)
 ```
+</div>
 
 ## `kinesis`
 15. We are only interested in the superheros that do some kind of "kinesis". How would we isolate them from the `superhero_powers` data?
