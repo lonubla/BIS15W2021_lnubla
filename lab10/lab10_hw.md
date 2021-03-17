@@ -1,7 +1,7 @@
 ---
 title: "Lab 10 Homework"
 author: "Please Add Your Name Here"
-date: "2021-03-15"
+date: "2021-03-16"
 output:
   html_document: 
     theme: spacelab
@@ -23,6 +23,12 @@ library(janitor)
 library(here)
 library(naniar)
 ```
+<style>
+div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}
+</style>
+<div class = "blue">
+
+# missing data
 
 ## Desert Ecology
 For this assignment, we are going to use a modified data set on [desert ecology](http://esapubs.org/archive/ecol/E090/118/). The data are from: S. K. Morgan Ernest, Thomas J. Valone, and James H. Brown. 2009. Long-term monitoring and experimental manipulation of a Chihuahuan Desert ecosystem near Portal, Arizona, USA. Ecology 90:1708.
@@ -33,7 +39,7 @@ deserts <- read_csv(here("lab10", "data", "surveys_complete.csv"))
 
 ```
 ## 
-## ── Column specification ────────────────────────────────────────────────────────
+## -- Column specification --------------------------------------------------------
 ## cols(
 ##   record_id = col_double(),
 ##   month = col_double(),
@@ -50,6 +56,7 @@ deserts <- read_csv(here("lab10", "data", "surveys_complete.csv"))
 ##   plot_type = col_character()
 ## )
 ```
+</div>
 
 1. Use the function(s) of your choice to get an idea of its structure, including how NA's are treated. Are the data tidy?  
 
@@ -71,19 +78,19 @@ glimpse(deserts)
 ```
 ## Rows: 34,786
 ## Columns: 13
-## $ record_id       <dbl> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16…
-## $ month           <dbl> 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7,…
-## $ day             <dbl> 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 1…
-## $ year            <dbl> 1977, 1977, 1977, 1977, 1977, 1977, 1977, 1977, 1977,…
-## $ plot_id         <dbl> 2, 3, 2, 7, 3, 1, 2, 1, 1, 6, 5, 7, 3, 8, 6, 4, 3, 2,…
-## $ species_id      <chr> "NL", "NL", "DM", "DM", "DM", "PF", "PE", "DM", "DM",…
-## $ sex             <chr> "M", "M", "F", "M", "M", "M", "F", "M", "F", "F", "F"…
-## $ hindfoot_length <dbl> 32, 33, 37, 36, 35, 14, NA, 37, 34, 20, 53, 38, 35, N…
-## $ weight          <dbl> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
-## $ genus           <chr> "Neotoma", "Neotoma", "Dipodomys", "Dipodomys", "Dipo…
-## $ species         <chr> "albigula", "albigula", "merriami", "merriami", "merr…
-## $ taxa            <chr> "Rodent", "Rodent", "Rodent", "Rodent", "Rodent", "Ro…
-## $ plot_type       <chr> "Control", "Long-term Krat Exclosure", "Control", "Ro…
+## $ record_id       <dbl> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16,~
+## $ month           <dbl> 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, ~
+## $ day             <dbl> 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16~
+## $ year            <dbl> 1977, 1977, 1977, 1977, 1977, 1977, 1977, 1977, 1977, ~
+## $ plot_id         <dbl> 2, 3, 2, 7, 3, 1, 2, 1, 1, 6, 5, 7, 3, 8, 6, 4, 3, 2, ~
+## $ species_id      <chr> "NL", "NL", "DM", "DM", "DM", "PF", "PE", "DM", "DM", ~
+## $ sex             <chr> "M", "M", "F", "M", "M", "M", "F", "M", "F", "F", "F",~
+## $ hindfoot_length <dbl> 32, 33, 37, 36, 35, 14, NA, 37, 34, 20, 53, 38, 35, NA~
+## $ weight          <dbl> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA~
+## $ genus           <chr> "Neotoma", "Neotoma", "Dipodomys", "Dipodomys", "Dipod~
+## $ species         <chr> "albigula", "albigula", "merriami", "merriami", "merri~
+## $ taxa            <chr> "Rodent", "Rodent", "Rodent", "Rodent", "Rodent", "Rod~
+## $ plot_type       <chr> "Control", "Long-term Krat Exclosure", "Control", "Rod~
 ```
 
 2. How many genera and species are represented in the data? What are the total number of observations? Which species is most/ least frequently sampled in the study?
@@ -107,7 +114,7 @@ deserts%>%
 ##  8 Ammospermophilus   437
 ##  9 Amphispiza         303
 ## 10 Spermophilus       249
-## # … with 16 more rows
+## # ... with 16 more rows
 ```
 
 ```r
@@ -129,7 +136,7 @@ deserts%>%
 ##  8 flavus        1597
 ##  9 eremicus      1299
 ## 10 albigula      1252
-## # … with 30 more rows
+## # ... with 30 more rows
 ```
 34786 total observations
 genera: 26
@@ -196,6 +203,10 @@ deserts%>%
 ```
 
 ![](lab10_hw_files/figure-html/unnamed-chunk-11-1.png)<!-- -->
+<style>
+div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}
+</style>
+<div class = "blue">
 
 7. [Dipodomys merriami](https://en.wikipedia.org/wiki/Merriam's_kangaroo_rat) is the most frequently sampled animal in the study. How have the number of observations of this species changed over the years included in the study?
 
@@ -208,7 +219,7 @@ deserts%>%
 ```
 ## # A tibble: 26 x 2
 ##     year     n
-##    <dbl> <int>
+##  * <dbl> <int>
 ##  1  1977   264
 ##  2  1978   389
 ##  3  1979   209
@@ -219,7 +230,7 @@ deserts%>%
 ##  8  1984   396
 ##  9  1985   667
 ## 10  1986   406
-## # … with 16 more rows
+## # ... with 16 more rows
 ```
 
 ```r
@@ -230,6 +241,7 @@ deserts%>%
 ```
 
 ![](lab10_hw_files/figure-html/unnamed-chunk-13-1.png)<!-- -->
+</div>
 
 8. What is the relationship between `weight` and `hindfoot` length? Consider whether or not over plotting is an issue.
 
@@ -276,7 +288,7 @@ deserts %>%
 ##  8 merriami           43.2
 ##  9 baileyi            31.7
 ## 10 leucogaster        31.6
-## # … with 12 more rows
+## # ... with 12 more rows
 ```
 Albigula and Spectabilis
 

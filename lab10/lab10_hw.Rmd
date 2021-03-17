@@ -24,12 +24,19 @@ library(janitor)
 library(here)
 library(naniar)
 ``` 
+<style>
+div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}
+</style>
+<div class = "blue">
+
+# missing data
 
 ## Desert Ecology
 For this assignment, we are going to use a modified data set on [desert ecology](http://esapubs.org/archive/ecol/E090/118/). The data are from: S. K. Morgan Ernest, Thomas J. Valone, and James H. Brown. 2009. Long-term monitoring and experimental manipulation of a Chihuahuan Desert ecosystem near Portal, Arizona, USA. Ecology 90:1708.
 ```{r}
 deserts <- read_csv(here("lab10", "data", "surveys_complete.csv"))
 ```
+</div>
 
 1. Use the function(s) of your choice to get an idea of its structure, including how NA's are treated. Are the data tidy?  
 ```{r}
@@ -90,6 +97,10 @@ deserts%>%
   geom_boxplot()+
   geom_point(size=0.5)
 ```
+<style>
+div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}
+</style>
+<div class = "blue">
 
 7. [Dipodomys merriami](https://en.wikipedia.org/wiki/Merriam's_kangaroo_rat) is the most frequently sampled animal in the study. How have the number of observations of this species changed over the years included in the study?
 ```{r}
@@ -103,6 +114,7 @@ deserts%>%
   ggplot(aes(x=year))+
   geom_bar()
 ```
+</div>
 
 8. What is the relationship between `weight` and `hindfoot` length? Consider whether or not over plotting is an issue.
 ```{r}
