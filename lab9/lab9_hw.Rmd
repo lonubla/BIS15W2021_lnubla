@@ -24,11 +24,18 @@ library(janitor)
 library(here)
 library(naniar)
 ``` 
+<style>
+div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}
+</style>
+<div class = "blue">
+
+# missing data
 
 For this homework, we will take a departure from biological data and use data about California colleges. These data are a subset of the national college scorecard (https://collegescorecard.ed.gov/data/). Load the `ca_college_data.csv` as a new object called `colleges`.
 ```{r}
 colleges<-readr::read_csv("data/ca_college_data.csv")
 ```
+</div>
 
 The variables are a bit hard to decipher, here is a key:  
 
